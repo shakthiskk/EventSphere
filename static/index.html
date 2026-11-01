@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventSphere | Event Management</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app-container">
+
+        <aside class="sidebar">
+            <div class="logo">
+                <span class="logo-icon">✦</span>
+                <span>EventSphere</span>
+            </div>
+
+            <p class="menu-heading">MENU</p>
+
+            <nav>
+                <a href="#dashboard" class="nav-link active">▦ Dashboard</a>
+                <a href="#manage" class="nav-link">◈ Manage Events</a>
+                <a href="#search" class="nav-link">⌕ Semantic Search</a>
+                <a href="#filter" class="nav-link">⚙ Price Filter</a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="database-status">
+                    <span class="status-dot"></span>
+                    <div>
+                        <strong>ChromaDB</strong>
+                        <small>Local Database</small>
+                    </div>
+                </div>
+                <p>EventSphere v1.0</p>
+            </div>
+        </aside>
+
+        <main class="main-content">
+
+            <header class="topbar">
+                <div>
+                    <p class="welcome-text">EVENT MANAGEMENT SYSTEM</p>
+                    <h1>Dashboard</h1>
+                </div>
+                <div class="topbar-right">
+                    <span class="live-indicator">● System Active</span>
+                    <div class="profile">ES</div>
+                </div>
+            </header>
+
+            <section id="dashboard">
+
+                <div class="hero">
+                    <div>
+                        <p class="hero-label">YOUR EVENT DATABASE</p>
+                        <h2>Manage events.<br><span>Discover experiences.</span></h2>
+                        <p class="hero-description">
+                            A smart event management system powered by ChromaDB.
+                        </p>
+                        <a href="#manage" class="hero-button">Explore Events →</a>
+                    </div>
+                    <div class="hero-decoration">✦</div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p>Total Events</p>
+                        <h2 id="totalEvents">0</h2>
+                        <span>Stored in ChromaDB</span>
+                    </div>
+
+                    <div class="stat-card">
+                        <p>Database</p>
+                        <h2>ChromaDB</h2>
+                        <span>Vector Database</span>
+                    </div>
+
+                    <div class="stat-card">
+                        <p>Storage</p>
+                        <h2>Local</h2>
+                        <span>Persistent Storage</span>
+                    </div>
+                </div>
+
+            </section>
+
+            <section id="manage" class="content-section">
+                <div class="section-heading">
+                    <div>
+                        <p class="section-label">DATABASE OPERATIONS</p>
+                        <h2>Manage Events</h2>
+                    </div>
+                    <button class="primary-button" onclick="showAddForm()">+ Add Event</button>
+                </div>
+
+                <div id="eventForm" class="form-card hidden">
+                    <h3 id="formTitle">Add New Event</h3>
+
+                    <div class="form-grid">
+                        <input id="eventId" placeholder="Event ID (E104)">
+                        <input id="eventName" placeholder="Event Name">
+                        <input id="eventLocation" placeholder="Location">
+                        <input id="eventPrice" type="number" placeholder="Price">
+                        <textarea id="eventDescription" placeholder="Event Description"></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button class="primary-button" onclick="saveEvent()">Save Event</button>
+                        <button class="secondary-button" onclick="hideForm()">Cancel</button>
+                    </div>
+                </div>
+
+                <div id="eventsContainer" class="events-grid">
+                    <p>Loading events...</p>
+                </div>
+            </section>
+
+            <section id="search" class="content-section">
+                <div class="section-heading">
+                    <div>
+                        <p class="section-label">INTELLIGENT DISCOVERY</p>
+                        <h2>Semantic Search</h2>
+                    </div>
+                </div>
+
+                <p class="section-description">
+                    Search by meaning instead of exact words.
+                </p>
+
+                <div class="search-box">
+                    <input id="searchInput" placeholder="Try: technology events for students">
+                    <button class="primary-button" onclick="searchEvents()">Search</button>
+                </div>
+
+                <div id="searchResults" class="events-grid"></div>
+            </section>
+
+            <section id="filter" class="content-section">
+                <div class="section-heading">
+                    <div>
+                        <p class="section-label">METADATA QUERY</p>
+                        <h2>Filter by Price</h2>
+                    </div>
+                </div>
+
+                <div class="search-box">
+                    <input id="maxPrice" type="number" value="1000" placeholder="Maximum price">
+                    <button class="primary-button" onclick="filterEvents()">Apply Filter</button>
+                </div>
+
+                <div id="filterResults" class="events-grid"></div>
+            </section>
+
+            <footer>
+                <p>EventSphere © 2026 | Powered by ChromaDB</p>
+            </footer>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
